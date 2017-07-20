@@ -1,0 +1,19 @@
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+### folder
+/target
+/bin
+/build
+/.settings
+/.classpath
+/.project
+.gradle
+*.log
+*.class
+.checkstyle
+gradlew
+gradlew.bat
+/gradle
