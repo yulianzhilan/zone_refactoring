@@ -22,7 +22,7 @@ public class ConfigConstants {
     public static final String REDIS_POOL_MAXIDLE = "redis.pool.max-idle";
     public static final String REDIS_POOL_MAXWAIT = "redis.pool.max-wait";
     public static final String REDIS_POOL_MAXACTIVE = "redis.pool.max-active";
-    public static final String [] REDIS_CACHE_NAMES = {"user"};
+    public static final String [] REDIS_CACHE_NAMES = {"user", "sidebar"};
     public static final Long REDIS_DEFAULT_EXPIRATION = 1800L;
 
     // mail

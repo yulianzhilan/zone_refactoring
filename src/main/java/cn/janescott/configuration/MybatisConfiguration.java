@@ -5,6 +5,7 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -22,6 +23,9 @@ public class MybatisConfiguration implements TransactionManagementConfigurer{
     @Resource
     private DataSource dataSource;
 
+    @Resource
+    private ResourcePatternResolver resolver;
+
     @Override
     public PlatformTransactionManager annotationDrivenTransactionManager() {
         return new DataSourceTransactionManager(dataSource);
@@ -32,6 +36,7 @@ public class MybatisConfiguration implements TransactionManagementConfigurer{
         SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
         factoryBean.setDataSource(dataSource);
         try {
+            factoryBean.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
             return factoryBean.getObject();
         } catch (Exception e) {
             e.printStackTrace();

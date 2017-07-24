@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.janescott.repository.mapper.SidebarMapper">
+
+    <resultMap id="sidebarRM" type="cn.janescott.domain.dto.SidebarDTO">
+        <result property="roleName" column="roleName"/>
+        <result property="roleId" column="roleId"/>
+        <collection property="modules" resultMap="moduleRM"/>
+    </resultMap>
+    <resultMap id="moduleRM" type="cn.janescott.domain.dto.ModuleDTO">
+        <result property="id" column="id"/>
+        <result property="name" column="moduleName"/>
+        <result property="icon" column="moduleIcon"/>
+        <result property="seq" column="moduleSeq"/>
+        <collection property="menus" resultMap="menuRM"/>
+    </resultMap>
+    <resultMap id="menuRM" type="cn.janescott.domain.dto.MenuDTO">
+        <result property="name" column="MENU_NAME"/>
+        <result property="url" column="MENU_URL"/>
+        <result property="id" column="menuId"/>
+        <result property="icon" column="menuIcon"/>
+        <result property="seq" column="menuSeq"/>
+        <result property="moduleId" column="moduleId"/>
+    </resultMap>
+
+    <!-- 菜单栏 -->
+    <select id="getSidebar" resultMap="sidebarRM">
+        SELECT
+        MENU.NAME MENU_NAME,
+        MENU.URL MENU_URL,
+        MENU.icon menuIcon,
+        MENU.ID menuId,
+        MENU.SEQ menuSeq,
+        MENU.MODULE_ID moduleId,
+        MD.ID id,
+        MD.SEQ moduleSeq,
+        MD.ICON moduleIcon,
+        MD.NAME moduleName,
+        TR.ID roleId,
+        TR.NAME roleName
+        FROM
+        ROLE_MENU RM,
+        T_MENU MENU,
+        T_MODULE MD,
+        T_ROLE TR
+        WHERE
+        RM.ROLE_ID = #{roleId, jdbcType=INTEGER}
+        AND
+        RM.MENU_ID = MENU.ID
+        AND
+        MENU.MODULE_ID = MD.ID
+        AND
+        RM.ROLE_ID = TR.ID
+        ORDER BY MD.SEQ ASC, MENU.SEQ ASC
+    </select>
+</mapper>

@@ -1,6 +1,8 @@
 package cn.janescott.web;
 
+import cn.janescott.domain.dto.SidebarDTO;
 import cn.janescott.domain.dto.UserDTO;
+import cn.janescott.repository.mapper.SidebarMapper;
 import cn.janescott.repository.mapper.UserMapper;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,10 +17,18 @@ import javax.annotation.Resource;
 public class DemoController {
 
     @Resource
-    private UserMapper mapper;
+    private UserMapper userMapper;
 
-    @RequestMapping("/mapper")
-    public UserDTO mapper(String username){
-        return mapper.findOne(username);
+    @Resource
+    private SidebarMapper sidebarMapper;
+
+    @RequestMapping("/getUser")
+    public UserDTO getUser(String username){
+        return userMapper.findOne(username);
+    }
+
+    @RequestMapping("/sidebar")
+    public SidebarDTO getSidebar(Integer roleId){
+        return sidebarMapper.getSidebar(roleId);
     }
 }

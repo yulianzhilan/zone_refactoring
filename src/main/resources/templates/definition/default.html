@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js" xmlns:th="http://www.thymeleaf.org">
+<!--<![endif]-->
+<head th:include="layout/v1/header :: htmlhead(pageTitle='default')">
+
+</head>
+<body>
+    <div th:replace="layout/v1/pagehead :: pagehead"></div>
+    <div class="page-container">
+        <div class="page-content">
+            <div class="container">
+            </div>
+        </div>
+    </div>
+    <div th:replace="layout/v1/prefooter :: prefooter"></div>
+    <div th:replace="layout/v1/footer :: footer"></div>
+    <div th:replace="layout/v1/scrolltotop :: scrolltotop"></div>
+    <div th:include="layout/v1/javascript :: javascript"></div>
+</body>
+</html>
