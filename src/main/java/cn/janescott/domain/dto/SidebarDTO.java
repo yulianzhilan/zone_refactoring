@@ -45,4 +45,13 @@ public class SidebarDTO extends BaseSerialDomain{
     public SidebarDTO(List<ModuleDTO> modules) {
         this.modules = modules;
     }
+
+    @Override
+    public String toString() {
+        return "SidebarDTO{" +
+                "RoleId=" + RoleId +
+                ", RoleName='" + RoleName + '\'' +
+                ", modules=" + modules +
+                '}';
+    }
 }

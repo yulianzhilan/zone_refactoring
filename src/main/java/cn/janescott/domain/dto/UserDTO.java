@@ -68,4 +68,17 @@ public class UserDTO {
     public void setFlag(Boolean flag) {
         this.flag = flag;
     }
+
+    @Override
+    public String toString() {
+        return "UserDTO{" +
+                "username='" + username + '\'' +
+                ", id=" + id +
+                ", password='" + password + '\'' +
+                ", createTime=" + createTime +
+                ", roleId=" + roleId +
+                ", roleName='" + roleName + '\'' +
+                ", flag=" + flag +
+                '}';
+    }
 }

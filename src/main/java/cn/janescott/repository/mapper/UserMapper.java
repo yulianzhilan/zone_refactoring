@@ -19,5 +19,5 @@ public interface UserMapper {
             @Result(property = "roleId", column = "role_id"),
             @Result(property = "roleName", column = "name")
     })
-    UserDTO findOne(String username);
+    UserDTO findOneByUsername(String username);
 }

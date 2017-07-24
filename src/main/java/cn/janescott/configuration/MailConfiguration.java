@@ -45,7 +45,7 @@ public class MailConfiguration {
         }
 
         prop.put(ConfigConstants.MAIL_SSL_ENABLE, env.getProperty(ConfigConstants.MAIL_SSL_ENABLE));
-        return Session.getDefaultInstance(prop, new Authenticator() {
+        return Session.getInstance(prop, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(encryptor.decrypt(env.getProperty(ConfigConstants.MAIL_USERNAME)), encryptor.decrypt(env.getProperty(ConfigConstants.MAIL_PASSWORD)));
