@@ -12,6 +12,7 @@
 /.project
 /.gradle
 *.log
+/classes
 *.class
 .checkstyle
 gradlew
