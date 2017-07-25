@@ -1,6 +1,6 @@
-package cn.janescott.repository.mapper;
+package cn.janescott.repository.mapper.system;
 
-import cn.janescott.domain.dto.SidebarDTO;
+import cn.janescott.domain.dto.system.SidebarDTO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 

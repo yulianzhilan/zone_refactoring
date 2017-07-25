@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.janescott.repository.mapper.SidebarMapper">
+<mapper namespace="cn.janescott.repository.mapper.system.SidebarMapper">
 
-    <resultMap id="sidebarRM" type="cn.janescott.domain.dto.SidebarDTO">
+    <resultMap id="sidebarRM" type="cn.janescott.domain.dto.system.SidebarDTO">
         <result property="roleName" column="roleName"/>
         <result property="roleId" column="roleId"/>
         <collection property="modules" resultMap="moduleRM"/>
     </resultMap>
-    <resultMap id="moduleRM" type="cn.janescott.domain.dto.ModuleDTO">
+    <resultMap id="moduleRM" type="cn.janescott.domain.dto.system.ModuleDTO">
         <result property="id" column="id"/>
         <result property="name" column="moduleName"/>
         <result property="icon" column="moduleIcon"/>
         <result property="seq" column="moduleSeq"/>
         <collection property="menus" resultMap="menuRM"/>
     </resultMap>
-    <resultMap id="menuRM" type="cn.janescott.domain.dto.MenuDTO">
+    <resultMap id="menuRM" type="cn.janescott.domain.dto.system.MenuDTO">
         <result property="name" column="MENU_NAME"/>
         <result property="url" column="MENU_URL"/>
         <result property="id" column="menuId"/>

@@ -1,9 +1,5 @@
 package cn.janescott.configuration;
 
-import com.alibaba.druid.support.http.StatViewServlet;
-import com.alibaba.druid.support.http.WebStatFilter;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -60,25 +56,25 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter{
         return new StringHttpMessageConverter(Charset.forName("UTF-8"));
     }
 
-    /**
-     * 以下两个bean是为了监控Druid
-     * @return
-     */
-    @Bean
-    public FilterRegistrationBean getFilterRegistrationBean(){
-        FilterRegistrationBean filter = new FilterRegistrationBean();
-        filter.setFilter(new WebStatFilter());
-        filter.setName("druidWebStatFilter");
-        filter.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*");
-        filter.addUrlPatterns("/*");
-        return filter;
-    }
-
-    @Bean
-    public ServletRegistrationBean getServletRegistrationBean(){
-        ServletRegistrationBean servlet = new ServletRegistrationBean(new StatViewServlet(),"/druid/*");
-        servlet.setName("druidStatViewServlet");
-        servlet.addInitParameter("resetEnable", "false");
-        return servlet;
-    }
+//    /**
+//     * 以下两个bean是为了监控Druid
+//     * @return
+//     */
+//    @Bean
+//    public FilterRegistrationBean getFilterRegistrationBean(){
+//        FilterRegistrationBean filter = new FilterRegistrationBean();
+//        filter.setFilter(new WebStatFilter());
+//        filter.setName("druidWebStatFilter");
+//        filter.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*");
+//        filter.addUrlPatterns("/*");
+//        return filter;
+//    }
+//
+//    @Bean
+//    public ServletRegistrationBean getServletRegistrationBean(){
+//        ServletRegistrationBean servlet = new ServletRegistrationBean(new StatViewServlet(),"/druid/*");
+//        servlet.setName("druidStatViewServlet");
+//        servlet.addInitParameter("resetEnable", "true");
+//        return servlet;
+//    }
 }

@@ -1,13 +1,10 @@
 package cn.janescott.common.helper;
 
-import cn.janescott.domain.dto.SidebarDTO;
-import cn.janescott.domain.dto.UserDTO;
-import cn.janescott.repository.mapper.SidebarMapper;
-import cn.janescott.repository.mapper.UserMapper;
-import org.springframework.boot.autoconfigure.session.SessionProperties;
-import org.springframework.cache.CacheManager;
+import cn.janescott.domain.dto.system.SidebarDTO;
+import cn.janescott.domain.dto.system.UserDTO;
+import cn.janescott.repository.mapper.system.SidebarMapper;
+import cn.janescott.repository.mapper.system.UserMapper;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.data.redis.cache.RedisCache;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;

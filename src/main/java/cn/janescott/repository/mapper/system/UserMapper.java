@@ -1,6 +1,6 @@
-package cn.janescott.repository.mapper;
+package cn.janescott.repository.mapper.system;
 
-import cn.janescott.domain.dto.UserDTO;
+import cn.janescott.domain.dto.system.UserDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;

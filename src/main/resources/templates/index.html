@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
 </head>
 <body>
     <p th:text="#{welcome}"></p>
-    index
+
+    <p sec:authentication="name"></p>
+
+    <p th:text="${session.SPRING_SECURITY_CONTEXT.authentication.principal.username}"></p>
 </body>
 </html>

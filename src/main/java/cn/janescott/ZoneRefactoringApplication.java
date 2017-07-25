@@ -9,6 +9,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 
@@ -16,7 +17,7 @@ import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 @MapperScan("cn.janescott.repository.mapper")
-@SpringBootApplication(exclude = {RedisAutoConfiguration.class})
+@SpringBootApplication(exclude = {RedisAutoConfiguration.class, DataSourceAutoConfiguration.class})
 public class ZoneRefactoringApplication {
 	@Resource
 	private Environment env;
@@ -37,13 +38,15 @@ public class ZoneRefactoringApplication {
 		return encryptor;
 	}
 
-	@Bean(name = "dataSource")
-	public DataSource dataSource(StringEncryptor encryptor){
+	@Bean(name = "dataSource", destroyMethod = "close", initMethod = "init")
+	public DataSource dataSource(StringEncryptor encryptor) throws Exception {
 		DruidDataSource dataSource = new DruidDataSource();
 		dataSource.setDriverClassName(env.getProperty(ConfigConstants.DATASOURCE_DRIVER_CLASS_NAME));
 		dataSource.setUrl(encryptor.decrypt(env.getProperty(ConfigConstants.DATASOURCE_URL)));
 		dataSource.setUsername(encryptor.decrypt(env.getProperty(ConfigConstants.DATASOURCE_USERNAME)));
 		dataSource.setPassword(encryptor.decrypt(env.getProperty(ConfigConstants.DATASOURCE_PASSWORD)));
+		dataSource.setTestOnBorrow(true);
+		dataSource.setFilters("stat,wall");
 		return dataSource;
 	}
 

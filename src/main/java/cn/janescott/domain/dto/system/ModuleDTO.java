@@ -1,4 +1,4 @@
-package cn.janescott.domain.dto;
+package cn.janescott.domain.dto.system;
 
 import cn.janescott.domain.BaseSerialDomain;
 
