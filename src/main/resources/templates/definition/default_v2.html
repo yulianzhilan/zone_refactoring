@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html lang="en" class="ie8 no-js" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if IE 9]><html lang="en" class="ie9 no-js" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org" th:fragment="default(content)">
+<head th:replace="layout/v2/header :: head(pageTitle = ${currentVisitor.moduleName} + ' | ' + ${currentVisitor.menuName})">
+</head>
+<body>
+    <!-- begin header -->
+    <div th:class="page-header">
+        <!-- begin page top header -->
+        <div th:class="page-header-top" th:replace="layout/v2/page_header_top :: page_header_top">
+        </div>
+        <!-- end page top header -->
+        <!-- begin page header menu -->
+        <div th:class="page-header-menu" th:replace="layout/v2/page_header_menu :: page_header_menu">
+        </div>
+        <!-- end page header menu -->
+    </div>
+    <!-- end header -->
+
+    <!-- begin page container -->
+    <div th:class="page-container">
+        <!-- begin page head -->
+        <div th:class="page-head">
+            <div th:class="container">
+                <!-- begin page title -->
+                <div th:class="page-title" th:object="${currentVisitor}">
+                    <h1>
+                        <span th:text="*{moduleName}">home</span>
+                        <small>&gt;</small>
+                        <small th:text="*{menuName}"></small>
+                    </h1>
+                </div>
+                <!-- end page title -->
+                <!-- begin page toolbar -->
+                <div th:class="page-toolbar">
+                    <!-- todo page toolbar -->
+                </div>
+                <!-- end page toolbar -->
+            </div>
+        </div>
+        <!-- end page head -->
+        <!-- begin page content -->
+        <div th:class="page-content" th:replace="${content}">
+        </div>
+        <!-- end page content -->
+    </div>
+    <!-- end page container -->
+    <!-- begin page prefooter -->
+        <div th:class="page-prefooter" th:replace="layout/v2/page_pre_footer :: page_pre_footer">
+        </div>
+    <!-- end page prefooter -->
+    <!-- begin page footer -->
+        <div th:class="page-footer" th:replace="layout/v2/page_footer :: page_footer">
+        </div>
+        <div class="scroll-to-top">
+            <i class="icon-arrow-up"></i>
+        </div>
+    <!-- end page footer -->
+    <!-- begin java scripts -->
+    <div th:include="layout/v2/javascript :: javascript"></div>
+    <!-- end java scripts -->
+</body>
+</html>

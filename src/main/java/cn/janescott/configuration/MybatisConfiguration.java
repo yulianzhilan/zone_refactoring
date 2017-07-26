@@ -36,7 +36,7 @@ public class MybatisConfiguration implements TransactionManagementConfigurer{
         SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
         factoryBean.setDataSource(dataSource);
         try {
-            factoryBean.setMapperLocations(resolver.getResources("classpath:mybatis/mapper/*.xml"));
+            factoryBean.setMapperLocations(resolver.getResources("classpath:mybatis/mapper/**/*.xml"));
             return factoryBean.getObject();
         } catch (Exception e) {
             e.printStackTrace();

@@ -203,7 +203,7 @@
 		} else {
 			// type == 'POST' || 'GET' || 'DELETE'
 			if ( requestSettings.async === false ) {
-				// TODO: Blocking delay
+				// TO DO: Blocking delay
 				process();
 			} else {
 				this.responseTimer = setTimeout(process, mockHandler.responseTime || 50);

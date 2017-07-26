@@ -56,7 +56,6 @@ public class MyAuthenticationProvider implements AuthenticationProvider {
         } else if (!userDetail.isCredentialsNonExpired()) {
 
         }
-        System.out.println(encryptor.decrypt(userDetail.getPassword()));
         // 密码验证
         // 加密/解密
         if (!encryptor.decrypt(userDetail.getPassword()).equals(password)) {

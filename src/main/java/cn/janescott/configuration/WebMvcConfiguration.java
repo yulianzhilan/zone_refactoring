@@ -19,6 +19,7 @@ import java.nio.charset.Charset;
 @Configuration
 @EnableWebMvc
 public class WebMvcConfiguration extends WebMvcConfigurerAdapter{
+
     /**
      * 文件上传解析器
      * @return

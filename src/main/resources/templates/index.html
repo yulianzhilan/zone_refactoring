@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-                xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+                xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
@@ -8,8 +8,8 @@
 <body>
     <p th:text="#{welcome}"></p>
 
-    <p sec:authentication="name"></p>
+    <span sec:authentication="principal.username"></span>
 
-    <p th:text="${session.SPRING_SECURITY_CONTEXT.authentication.principal.username}"></p>
+    <span sec:authorize=""></span>
 </body>
 </html>
