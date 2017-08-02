@@ -5,6 +5,22 @@ Q & A
 1. redis中cacheName怎么单独操作缓存数据
 2.
 -----------------------
+###todo
+1.整合mybatis
+>http://blog.csdn.net/isea533/article/details/50359390
+
+2.解决hibernate懒加载导致的redis缓存中无法去到级联对象的bug
+
+3.使用双视图解析器，jsp+tiles & thymeleaf 
+>https://stackoverflow.com/questions/24260520/error-resolving-template-pages-template-might-not-exist-or-might-not-be-acces
+>由于使用jar打包方式，所以jsp这种视图解析器不能使用。
+
+4.集成百度编辑器 
+>http://ueditor.baidu.com/website/umeditor.html
+
+5.处理解析不到error的问题 
+>http://blog.csdn.net/king_is_everyone/article/details/53080851<br/>
+-----------------------
 GOLDS
 <br/>
 1.springboot中thymeleaf需要从2.0升级到3.0才能使用参数化布局
@@ -22,3 +38,16 @@ GOLDS
 
 5.标签的使用
 >http://blog.csdn.net/quuqu/article/details/52511933
+
+6.mybatis mapper 标签的使用
+>http://blog.csdn.net/zenson_g/article/details/10137665
+
+7.mybatis null值处理无效的列类型
+>http://makemyownlife.iteye.com/blog/1610021
+
+8.thymeleaf用法
+>http://blog.csdn.net/mygzs/article/category/6402219
+>
+>http://blog.720ui.com/columns/springboot_all/
+>
+>http://tengj.top/2017/04/24/springboot0/
