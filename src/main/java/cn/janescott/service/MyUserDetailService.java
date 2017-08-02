@@ -1,7 +1,7 @@
 package cn.janescott.service;
 
 import cn.janescott.common.constant.ExceptionConstants;
-import cn.janescott.common.extra.MyUserDetail;
+import cn.janescott.common.auth.MyUserDetail;
 import cn.janescott.domain.dto.system.RoleDTO;
 import cn.janescott.domain.entity.system.UserEntity;
 import cn.janescott.repository.jpa.system.UserRepository;

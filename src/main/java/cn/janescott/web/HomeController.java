@@ -19,15 +19,7 @@ public class HomeController extends BaseController {
     private StringEncryptor encryptor;
 
     @RequestMapping("/home")
-    public String home(HttpServletRequest request) {
-        try {
-            attachSidebar(request);
-        } catch (LoginException e) {
-            return "redirect:/login";
-        } catch (Exception e) {
-            // todo 这里需要记日志
-        }
-        attachCurrentDetail(request);
+    public String home(HttpServletRequest request) throws Exception{
         return "views/home";
     }
 
@@ -36,10 +28,4 @@ public class HomeController extends BaseController {
         return "definition/default";
     }
 
-    @RequestMapping("/article")
-    public String article(HttpServletRequest request) throws Exception{
-        attachSidebar(request);
-        attachCurrentDetail(request);
-        return "views/article/index";
-    }
 }

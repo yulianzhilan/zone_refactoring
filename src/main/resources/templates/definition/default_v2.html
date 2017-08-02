@@ -2,8 +2,9 @@
 <!--[if IE 8]><html lang="en" class="ie8 no-js" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
 <!--[if IE 9]><html lang="en" class="ie9 no-js" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org" th:fragment="default(content)">
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org" th:fragment="default(content,css,javascript)">
 <head th:replace="layout/v2/header :: head(pageTitle = ${currentVisitor.moduleName} + ' | ' + ${currentVisitor.menuName})">
+    <div th:replace="${css}"></div>
 </head>
 <body>
     <!-- begin header -->
@@ -25,12 +26,26 @@
         <div th:class="page-head">
             <div th:class="container">
                 <!-- begin page title -->
+                <!--<div th:class="page-title" th:object="${currentVisitor}">-->
+                    <!--<h1>-->
+                        <!--<span th:text="*{moduleName}">home</span>-->
+                        <!--<small>&gt;</small>-->
+                        <!--<small th:text="*{menuName}"></small>-->
+                    <!--</h1>-->
+                <!--</div>-->
                 <div th:class="page-title" th:object="${currentVisitor}">
-                    <h1>
-                        <span th:text="*{moduleName}">home</span>
-                        <small>&gt;</small>
-                        <small th:text="*{menuName}"></small>
-                    </h1>
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <a href="/zone/home">HOME</a><i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <a href="/zone/"></a>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li class="active">
+                            eCommerce
+                        </li>
+                    </ul>
                 </div>
                 <!-- end page title -->
                 <!-- begin page toolbar -->
@@ -59,7 +74,8 @@
         </div>
     <!-- end page footer -->
     <!-- begin java scripts -->
-    <div th:include="layout/v2/javascript :: javascript"></div>
+    <div th:replace="layout/v2/javascript :: javascript"></div>
     <!-- end java scripts -->
+    <div th:replace="${javascript}"></div>
 </body>
 </html>

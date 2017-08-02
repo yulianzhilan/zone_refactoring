@@ -1,4 +1,4 @@
-package cn.janescott.common.extra;
+package cn.janescott.common.auth;
 
 import cn.janescott.domain.dto.system.RoleDTO;
 import cn.janescott.domain.entity.system.UserEntity;

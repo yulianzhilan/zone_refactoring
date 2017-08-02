@@ -12,6 +12,10 @@ public class CurrentDetailDTO extends BaseSerialDomain{
 
     private String username;
 
+    private boolean index = false;
+
+    private String parentPath;
+
     public String getModuleName() {
         return moduleName;
     }
@@ -34,5 +38,21 @@ public class CurrentDetailDTO extends BaseSerialDomain{
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public boolean isIndex() {
+        return index;
+    }
+
+    public void setIndex(boolean index) {
+        this.index = index;
+    }
+
+    public String getParentPath() {
+        return parentPath;
+    }
+
+    public void setParentPath(String parentPath) {
+        this.parentPath = parentPath;
     }
 }

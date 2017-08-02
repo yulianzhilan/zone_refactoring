@@ -1,16 +1,15 @@
 package cn.janescott.configuration;
 
+import cn.janescott.common.interceptor.LoadInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.*;
 
+import javax.annotation.Resource;
 import java.nio.charset.Charset;
 
 /**
@@ -20,6 +19,9 @@ import java.nio.charset.Charset;
 @EnableWebMvc
 public class WebMvcConfiguration extends WebMvcConfigurerAdapter{
 
+    @Resource
+    private LoadInterceptor loadInterceptor;
+
     /**
      * 文件上传解析器
      * @return
@@ -27,24 +29,6 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter{
     @Bean
     public MultipartResolver multipartResolver(){
         return new StandardServletMultipartResolver();
-    }
-
-    /**
-     * 对于无任何业务处理的请求（只是简单页面跳转），直接在这里配置页面和路径
-     * @param registry
-     */
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/index").setViewName("index");
-    }
-
-    /**
-     * 静态资源配置
-     * @param registry
-     */
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
     }
 
     /**
@@ -78,4 +62,27 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter{
 //        servlet.addInitParameter("resetEnable", "true");
 //        return servlet;
 //    }
+
+    /**
+     * 对于无任何业务处理的请求（只是简单页面跳转），直接在这里配置页面和路径
+     * @param registry
+     */
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/index").setViewName("index");
+    }
+
+    /**
+     * 静态资源配置
+     * @param registry
+     */
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(loadInterceptor);
+    }
 }

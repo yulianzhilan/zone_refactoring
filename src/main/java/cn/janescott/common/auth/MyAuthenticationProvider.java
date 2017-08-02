@@ -1,4 +1,4 @@
-package cn.janescott.common.extra;
+package cn.janescott.common.auth;
 
 import cn.janescott.common.constant.ExceptionConstants;
 import cn.janescott.service.MyUserDetailService;

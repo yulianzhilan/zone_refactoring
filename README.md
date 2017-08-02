@@ -34,9 +34,9 @@ GOLDS
 3.java mail : Access to default session denied 发送邮件时,第一次发送成功,之后就一直失败
 > http://blog.csdn.net/qingniaofy/article/details/10010073
 
-4.thymeleaf 热加载 (alt + F9 / alt + shift + F9)
+4.thymeleaf 热加载 (alt + F9 / alt + shift + F9 / ctrl + F9)
 
-5.标签的使用
+5.thymeleaf标签的使用
 >http://blog.csdn.net/quuqu/article/details/52511933
 
 6.mybatis mapper 标签的使用
@@ -45,7 +45,7 @@ GOLDS
 7.mybatis null值处理无效的列类型
 >http://makemyownlife.iteye.com/blog/1610021
 
-8.thymeleaf用法
+8.springboot用法
 >http://blog.csdn.net/mygzs/article/category/6402219
 >
 >http://blog.720ui.com/columns/springboot_all/
