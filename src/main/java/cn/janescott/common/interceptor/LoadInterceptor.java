@@ -64,12 +64,12 @@ public class LoadInterceptor extends HandlerInterceptorAdapter {
                 current.setMenuName(SystemConstants.MODULE_INDEX_MENU);
                 current.setIndex(true);
             }
+            current.setParentPath(path);
         } else {
             current.setModuleName(info[2]);
             current.setMenuName(info[3].split("\\.")[0].split("\\?")[0]);
+            current.setParentPath(path.substring(0, path.split("\\.")[0].split("\\?")[0].lastIndexOf("/")));
         }
-        // todo 加入上一层路径
-//        current.setParentPath();
         request.setAttribute("currentVisitor", current);
     }
 

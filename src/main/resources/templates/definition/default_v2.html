@@ -36,14 +36,14 @@
                 <div th:class="page-title" th:object="${currentVisitor}">
                     <ul class="page-breadcrumb breadcrumb">
                         <li>
-                            <a href="/zone/home">HOME</a><i class="fa fa-circle"></i>
+                            <a th:href="${session.homePath}">HOME</a><i class="fa fa-circle"></i>
                         </li>
-                        <li>
-                            <a href="/zone/"></a>
+                        // fixme 这里需要修改
+                        <li th:if="*{moduleName} != 'home'">
+                            <a th:href="|*{parentPath}|" th:text="*{moduleName}"></a>
                             <i class="fa fa-circle"></i>
                         </li>
-                        <li class="active">
-                            eCommerce
+                        <li class="active" th:text="*{menuName}">
                         </li>
                     </ul>
                 </div>

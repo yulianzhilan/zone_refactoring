@@ -49,5 +49,16 @@
         });
     </script>
     <!-- END JAVASCRIPTS -->
+
+    <script th:inline="javascript">
+        jQuery(document).ready(function () {
+            var module = [[${currentVisitor.moduleName}]];
+            $(".menu,span").each(function () {
+                if ($(this).text() == module ) {
+                    $(this).parent().parent().addClass("active");
+                }
+            })
+        })
+    </script>
 </div>
 </html>
