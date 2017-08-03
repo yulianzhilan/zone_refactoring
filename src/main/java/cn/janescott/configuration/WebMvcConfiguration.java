@@ -1,6 +1,8 @@
 package cn.janescott.configuration;
 
+import cn.janescott.common.filter.RedirectFilter;
 import cn.janescott.common.interceptor.LoadInterceptor;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -62,6 +64,17 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter{
 //        servlet.addInitParameter("resetEnable", "true");
 //        return servlet;
 //    }
+
+    /**
+     * 过滤器
+     */
+    @Bean
+    public FilterRegistrationBean registrationBean(){
+        FilterRegistrationBean register = new FilterRegistrationBean();
+        register.setFilter(new RedirectFilter());
+        register.addUrlPatterns("/*");
+        return register;
+    }
 
     /**
      * 对于无任何业务处理的请求（只是简单页面跳转），直接在这里配置页面和路径

@@ -24,7 +24,13 @@
                             <span th:text="${module.name}" class="menu"></span><i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu pull-left">
-                            <li class=" dropdown-submenu" th:each="menu : ${module.menus}">
+                            <li th:class="dropdown-submenu">
+                                <a th:href="|${#strings.concat(session.ctx,module.name)}|">
+                                    <i th:class="icon-compass"></i>
+                                    <span>index</span>
+                                </a>
+                            </li>
+                            <li class="dropdown-submenu" th:each="menu : ${module.menus}">
                                 <a th:href="${menu.url}">
                                     <i th:class="${menu.icon}"></i>
                                     <span th:text="${menu.name}"></span>

@@ -38,8 +38,7 @@
                         <li>
                             <a th:href="${session.homePath}">HOME</a><i class="fa fa-circle"></i>
                         </li>
-                        // fixme 这里需要修改
-                        <li th:if="*{moduleName} != 'home'">
+                        <li th:if="*{moduleName != 'home'}">
                             <a th:href="|*{parentPath}|" th:text="*{moduleName}"></a>
                             <i class="fa fa-circle"></i>
                         </li>

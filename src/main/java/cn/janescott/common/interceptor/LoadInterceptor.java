@@ -28,14 +28,12 @@ public class LoadInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String path = request.getRequestURI();
-        if (StringUtils.isEmpty(path) || SystemConstants.CONTENT_PATH.equals(path)) {
-            response.sendRedirect("/home");
-        } else if (SystemConstants.ERROR_PATH.equals(path) || path.contains(SystemConstants.ERROR)) {
+        if (SystemConstants.ERROR_PATH.equals(path) || path.contains(SystemConstants.ERROR)) {
 
-        } else if (path.contains(SystemConstants.MODULE_HOME)) {
-            attachSidebar(request);
-            attachCurrent(request, path);
         } else {
+            if (request.getSession().getAttribute("sidebarDTO") == null) {
+                attachSidebar(request);
+            }
             attachCurrent(request, path);
         }
         return true;
@@ -85,6 +83,7 @@ public class LoadInterceptor extends HandlerInterceptorAdapter {
         SidebarDTO sidebar = cacheHelper.getSidebar(currentUser.getRoleId());
         request.getSession().setAttribute("sidebarDTO", sidebar);
         request.getSession().setAttribute("homePath", SystemConstants.HOME_PATH);
+        request.getSession().setAttribute("ctx", SystemConstants.CONTENT_PATH);
     }
 
     /**
