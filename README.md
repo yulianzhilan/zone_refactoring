@@ -55,3 +55,9 @@ GOLDS
 9.图 chartjs/flot
 >http://www.chartjs.org/samples/latest/
 >http://www.flotcharts.org/flot/examples/
+
+10.oralce时间函数
+>http://www.cnblogs.com/chuncn/archive/2009/04/29/1381282.html
+
+11.ORACLE复制数据
+>http://blog.sina.com.cn/s/blog_7c7ec19b0100u6vb.html
