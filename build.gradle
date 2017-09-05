@@ -2,7 +2,11 @@ buildscript {
 	ext {
 		springBootVersion = '1.5.4.RELEASE'
 	}
+//	repositories {
+//		mavenCentral()
+//	}
 	repositories {
+		maven{ url 'http://maven.aliyun.com/nexus/content/groups/public'}
 		mavenCentral()
 	}
 	dependencies {
@@ -17,10 +21,17 @@ apply plugin: 'org.springframework.boot'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
-repositories {
-	mavenCentral()
-}
+//repositories {
+////	mavenCentral()
+//	url: 'http://maven.aliyun.com/nexus/content/groups/public'
+//}
 
+allprojects {
+	repositories {
+		maven{ url 'http://maven.aliyun.com/nexus/content/groups/public'}
+		mavenCentral()
+	}
+}
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-aop')
@@ -32,7 +43,7 @@ dependencies {
 	compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.0')
 	compile('org.springframework.boot:spring-boot-starter-security')
 	//	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-	// 使用一下3个代替启动器，为了替换thymeleaf 2.0->3.0
+	// 使用以下3个代替启动器，为了替换thymeleaf 2.0->3.0
 	compile("org.thymeleaf:thymeleaf:3.0.2.RELEASE")
 	compile("org.thymeleaf:thymeleaf-spring4:3.0.2.RELEASE")
 	compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.1.1")
@@ -50,4 +61,17 @@ dependencies {
 	compile group: 'org.jasypt', name: 'jasypt-spring31', version: '1.9.2'
 	// mybatis
 	compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '1.3.0'
+//	compile('com.zrk1000:spring-boot-mvc-ueditor-qiniu:ueditor1.4.3.3-qiniu7.2.X')
+	compile group: 'com.zrk1000', name: 'spring-boot-mvc-ueditor-qiniu', version: 'ueditor1.4.3.3-qiniu7.2.X'
+//	// dangdang config-toolkit & apache curator
+//	testCompile "com.dangdang:config-common:3.0.0-RELEASE"
+//	testCompile "com.dangdang:config-toolkit:3.2.2-RELEASE"
+//	testCompile "org.apache.curator:curator-recipes:2.11.0"
+//	// apache commons
+//	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+////	testCompile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
+//	// https://mvnrepository.com/artifact/commons-lang/commons-lang
+//	testCompile group: 'commons-lang', name: 'commons-lang', version: '2.6'
+//	// https://mvnrepository.com/artifact/com.101tec/zkclient
+//	testCompile group: 'com.101tec', name: 'zkclient', version: '0.10'
 }

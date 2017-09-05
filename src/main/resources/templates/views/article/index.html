@@ -1,11 +1,16 @@
 <html xmlns:th="http://www.thymeleaf.org"
       th:replace="definition/default_v2 :: default(~{::div},_,~{::script})">
     <div th:class="page-content" th:style="'min-height: 600px'">
-        article
+        <script id="editor" name="detailContent" type="text/plain" th:style="'width: 300px; height: 100px'"></script>
+        <script type="text/plain" th:src="@{/static/umeditor/js/umeditor.config.js}"></script>
+        <script type="text/plain" th:src="@{/static/umeditor/js/umeditor.js}"></script>
+        <!--<script type="text/plain">-->
+            <!--var ue = UE.getEditor('editor');-->
+        <!--</script>-->
     </div>
     <script>
         $(".icon-logout").click(function () {
             alert("logout");
-        })
+        });
     </script>
 </html>

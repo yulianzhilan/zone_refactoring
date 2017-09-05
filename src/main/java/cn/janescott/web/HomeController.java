@@ -1,6 +1,5 @@
 package cn.janescott.web;
 
-import cn.janescott.common.exception.LoginException;
 import org.jasypt.encryption.StringEncryptor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,4 +27,8 @@ public class HomeController extends BaseController {
         return "definition/default";
     }
 
+    @RequestMapping("/editor")
+    public String editor(){
+        return "definition/ueditor";
+    }
 }
